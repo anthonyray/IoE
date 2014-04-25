@@ -1,0 +1,26 @@
+{
+  "name": "IoE",
+  "version": "0.0.0",
+  "description": "Welcome to the IoE project.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anthonyray/IoE.git"
+  },
+  "keywords": [
+    "IoT",
+    "IoE"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anthonyray/IoE/issues"
+  },
+  "homepage": "https://github.com/anthonyray/IoE",
+  "dependencies": {
+    "yoctolib": "^1.10.15466"
+  }
+}
