@@ -4,6 +4,7 @@ var VirtualHub = require('../lib/virtualhub');
 
 var vh = new VirtualHub();
 vh.init();
+vh.listen();
 
 /* Instant values */ 
 
@@ -31,10 +32,7 @@ router.get('/sensor/:id',function(req,res){
 	}
 });
 
-
-
-
-
+/* DB values */
 
 
 module.exports = router;
