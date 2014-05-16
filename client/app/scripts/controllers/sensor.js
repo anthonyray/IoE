@@ -8,17 +8,27 @@ angular.module('ioEApp')
 		sensorsFactory.getLiveSensor($scope.sensorId).success(function(sensor){
 			$scope.liveSensor = sensor;
 		});
-
 		sensorsFactory.getDbSensor($scope.sensorId).success(function(sensor){
 			$scope.dbSensor = sensor;
-			
+			var limit = 50;
 			var labels = [];
 			var values = [];
 
-			sensor.forEach(function(row){
-				labels.push($filter('date')( row.date, 'H:mm' ));
-				values.push(row.numericValue);
-			});
+			if (sensor.length < 100){
+				sensor.forEach(function(row){
+					labels.push($filter('date')( row.date, 'H:mm' ));
+					values.push(row.numericValue);
+				});
+			}
+			else {
+				
+				var count = sensor.length;
+				for (var i = count-1 ; i >= (count - 1) - limit ; i--){
+					labels.push($filter('date')( sensor[i].date, 'H:mm' ));
+					values.push(sensor[i].numericValue);
+				}
+			}
+			
 
 			$scope.charts = {
 				labels : labels,
@@ -34,9 +44,11 @@ angular.module('ioEApp')
 			}
 
 			$scope.options = {
-				scaleShowLabels : false,
+				scaleShowLabels : true,
 				scaleShowGridLines : false,
-				pointDot : false
+				pointDot : false, 
+				scaleOverlay : true, 
+
 			}
 		});
   	}

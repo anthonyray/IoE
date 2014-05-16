@@ -36,13 +36,17 @@ module.exports = function(vh){
 	/* DB values */
 
 	router.get('/api/db/sensors',function(req,res){
-		db.loadSensors(function(err,sensors){
+		db.listSensors(function(err,sensors){
 			if (err){
 				console.log(err);
 				res.json([]);
 			}
 			else {
-				res.json(sensors);
+				var sensorsList = [];
+				sensors.forEach(function(sensor){
+					sensorsList.push({id : sensor.thingId });
+				});
+				res.json(sensorsList);
 			}
 
 		});
