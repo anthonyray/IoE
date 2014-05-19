@@ -4,5 +4,6 @@ data/db.db
 VirtualHub
 NEWVirtualHub
 client/node_modules/
-client/
 client/app/bower_components
+.node-xmlhttprequest-content-*
+

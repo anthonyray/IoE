@@ -14,7 +14,7 @@ angular.module('ioEApp')
 			var labels = [];
 			var values = [];
 
-			if (sensor.length < 100){
+			if (sensor.length < limit){
 				sensor.forEach(function(row){
 					labels.push($filter('date')( row.date, 'H:mm' ));
 					values.push(row.numericValue);
@@ -46,7 +46,7 @@ angular.module('ioEApp')
 			$scope.options = {
 				scaleShowLabels : true,
 				scaleShowGridLines : false,
-				pointDot : false, 
+				pointDot : true, 
 				scaleOverlay : true, 
 
 			}
