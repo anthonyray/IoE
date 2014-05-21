@@ -29,6 +29,10 @@ angular.module('ioEApp').factory('sensorsFactory', function($http) {
     return $http.get('/api/realtime/sensors');
   };
 
+  factory.getLiveActuators = function() {
+    return $http.get('/api/realtime/actuators');
+  };
+
   factory.getDbSensors = function(){
     return $http.get('/api/db/sensors');
   };

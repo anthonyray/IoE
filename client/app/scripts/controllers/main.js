@@ -9,6 +9,10 @@ angular.module('ioEApp')
 
 		sensorsFactory.getDbSensors().success(function(sensors){
 			$scope.dbSensors = sensors;
+		});
+
+		sensorsFactory.getLiveActuators().success(function(actuators){
+			$scope.actuators = actuators;
 		})
   	}
 
