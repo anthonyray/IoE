@@ -99,10 +99,7 @@ function loadInitRules(cb){
 	var initRules = [];
 	db = new sqlite3.Database('./data/db.db');
 	db.serialize(function(){
-		db.each("SELECT sensorId, operator, threshold, actuatorId, value 
-				FROM Triggers, Actions, Rules 
-				WHERE triggerId = Triggers.id 
-				AND actionId = Actions.id", function(err, row) {
+		db.each("SELECT sensorId, operator, threshold, actuatorId, value FROM Triggers, Actions, Rules WHERE triggerId = Triggers.id AND actionId = Actions.id", function(err, row) {
       		initRules.push(row);
   		},function(err){
   			db.close();
@@ -176,3 +173,4 @@ module.exports.saveRule = saveRule;
 module.exports.saveTrigger = saveTrigger;
 module.exports.deleteRule = deleteRule;
 module.exports.deleteTrigger = deleteTrigger;
+module.exports.loadInitRules = loadInitRules;
