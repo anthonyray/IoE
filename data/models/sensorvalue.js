@@ -94,6 +94,23 @@ function loadActions(cb){
 	});
 }
 
+function loadInitRules(cb){
+	var db;
+	var initRules = [];
+	db = new sqlite3.Database('./data/db.db');
+	db.serialize(function(){
+		db.each("SELECT sensorId, operator, threshold, actuatorId, value 
+				FROM Triggers, Actions, Rules 
+				WHERE triggerId = Triggers.id 
+				AND actionId = Actions.id", function(err, row) {
+      		initRules.push(row);
+  		},function(err){
+  			db.close();
+  			cb(err,initRules);
+  		});
+	});
+}
+
 function saveRule(triggerId, actionId, cb){
 	var db;
 	db = new sqlite3.Database('./data/db.db');
