@@ -17,13 +17,16 @@ db.serialize(function(){
 
 	db.run("INSERT INTO Triggers VALUES (null, 'METEOMK1-1DB2A.temperature','>',28)");
 	db.run("INSERT INTO Triggers VALUES (null, 'LIGHTMK1-1E62D.lightSensor','<',100)");
+	db.run("INSERT INTO Triggers VALUES (null, 'LIGHTMK1-1E62D.lightSensor','>',100)");
+
 
 	db.run("INSERT INTO Rules VALUES (null,1,1)");
 	db.run("INSERT INTO Rules VALUES (null,1,5)");
 	db.run("INSERT INTO Rules VALUES (null,2,2)");
-	db.run("INSERT INTO Rules VALUES (null,2,3)");
-	db.run("INSERT INTO Rules VALUES (null,1,9)");
+	//db.run("INSERT INTO Rules VALUES (null,1,9)");
 	db.run("INSERT INTO Rules VALUES (null,2,10)");
+	db.run("INSERT INTO Rules VALUES (null,3,3)");
+
 
 });
 
