@@ -48,7 +48,7 @@ function saveValue(thing,cb){
 			db.close();
 			cb(err);
 		});
-		
+
 	});
 }
 
@@ -132,9 +132,10 @@ function deleteTrigger(triggerId, cb){
 	var db;
 	db = new sqlite3.Database('./data/db.db');
 	var stmt = db.get("SELECT * FROM Rules WHERE triggerId=(?);",[triggerId],function(err, row) {
-	   	if (row!=undefined) {
-	     	db.close();
-			cb(err);
+		console.log(row);
+		if ( row != undefined ) {
+				db.close();
+				cb("conflict");
 		}
 		else {
 			db.serialize(function(){
@@ -144,12 +145,8 @@ function deleteTrigger(triggerId, cb){
 				});
 			});
 		}
-  	},function(err){
-		db.close();
-		cb(err);
-	});
+  	});
 }
-
 
 module.exports.loadSensors = loadSensors;
 module.exports.loadSensor = loadSensor;
