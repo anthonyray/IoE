@@ -31,7 +31,7 @@ function loadSensor(id,cb){
 	var sensors = [];
 	db = new sqlite3.Database('./data/db.db');
 	db.serialize(function(){
-		db.each("SELECT * FROM SensorValues WHERE thingId = ?;",[id],function(err,row){
+		db.each("SELECT * FROM SensorValues WHERE thingId = ? ORDER BY date DESC;",[id],function(err,row){
 			sensors.push(row);
 		},function(err){
 			db.close();

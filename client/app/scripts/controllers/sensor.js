@@ -15,20 +15,19 @@ angular.module('ioEApp')
 			var values = [];
 
 			if (sensor.length < limit){
-				sensor.forEach(function(row){
-					labels.push($filter('date')( row.date, 'H:mm' ));
-					values.push(row.numericValue);
-				});
+        for (var i = sensor.length - 1 ; i >= 0 ; i--){
+          labels.push($filter('date')( sensor[i].date, 'H:mm' ));
+          values.push(sensor[i].numericValue);
+        }
 			}
 			else {
-				
-				var count = sensor.length;
-				for (var i = count-1 ; i >= (count - 1) - limit ; i--){
+
+				for (var i = limit - 1 ; i >= 0 ; i--){
 					labels.push($filter('date')( sensor[i].date, 'H:mm' ));
 					values.push(sensor[i].numericValue);
 				}
 			}
-			
+
 
 			$scope.charts = {
 				labels : labels,
@@ -40,14 +39,14 @@ angular.module('ioEApp')
           	            pointStrokeColor : "#e67e22",
           	            data : values
           	        }
-          	    ] 
+          	    ]
 			}
 
 			$scope.options = {
 				scaleShowLabels : true,
 				scaleShowGridLines : false,
-				pointDot : true, 
-				scaleOverlay : true, 
+				pointDot : true,
+				scaleOverlay : true,
 
 			}
 		});
@@ -55,6 +54,3 @@ angular.module('ioEApp')
 
   	init();
   });
-
-
-
