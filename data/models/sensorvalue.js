@@ -44,12 +44,19 @@ function saveValue(thing,cb){
 	var db;
 	db = new sqlite3.Database('./data/db.db');
 	db.serialize(function(){
-		var stmt = db.run("INSERT INTO SensorValues VALUES (?,?,?,?);",[thing.get_hardwareId(),Date.now(),thing.get_currentValue()],function(err){
+		try {
+			var stmt = db.run("INSERT INTO SensorValues VALUES (?,?,?,?);",[thing.get_hardwareId(),Date.now(),thing.get_currentValue()],function(err){
+				db.close();
+				cb(err);
+			});
+			}
+		catch (err) {
+			console.log(err);
 			db.close();
 			cb(err);
-		});
-
+		}
 	});
+
 }
 
 function loadTriggers(cb){

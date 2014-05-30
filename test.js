@@ -11,7 +11,7 @@ vh.init(function(){
   console.log('[API] Server running on port ',9000);
   MainLoop.initRules(vh,function(){
     console.log("[Rules] Rules initialized");
-    console.log(vh.sensors[1]);
+    //console.log(vh.sensors[1]);
     MainLoop.start(vh);
   });
 });
