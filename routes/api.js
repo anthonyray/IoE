@@ -1,13 +1,13 @@
 /*
 * Initialization
 */
-module.exports = function(vh){
+module.exports = function(vh,MainLoop){
 
 	var express = require('express');
 	var router = express.Router();
 	var db = require('../data/models/sensorvalue');
 
-	/* Realtime values */ 
+	/* Realtime values */
 
 	router.get('/api/realtime/sensors',function(req,res){
 		var test = [];
@@ -28,7 +28,7 @@ module.exports = function(vh){
 	});
 
 	router.get('/api/realtime/sensor/:id',function(req,res){
-		
+
 		var result = vh.things.filter(function(thing){
 			return (thing.get_hardwareId() == req.params.id);
 		});
@@ -55,9 +55,9 @@ module.exports = function(vh){
 				console.log(value);
 				res.json({success : true});
 			});
-			
+
 		}
-		
+
 		else
 		{
 			res.json([]);
@@ -97,8 +97,48 @@ module.exports = function(vh){
 		});
 	});
 
+	/*
+	* Administration
+	*/
+	router.get('/api/rules',function(req,res){
+		db.loadRules(function(err,rules){
+			if (err)
+				res.json({success : false});
+			else
+				res.json({rules : rules});
+		});
+	});
+
+	router.post('/api/rules',function(req,res){
+			var triggerId = parseInt(req.param('triggerId'));
+			var actionId = parseInt(req.param('actionId'));
+
+			db.saveRule(triggerId, actionId, function(err){
+			if (err)
+				res.json({success : false, err : err, triggerId :triggerId, actionId : actionId })
+			else {
+				MainLoop.initRules(vh,function(){
+					res.json({success : true});
+				});
+			}
+		});
+
+	});
+
+	router.delete('/api/rules/:id',function(req,res){
+		var idRule = parseInt(req.params.id);
+		db.deleteRule(idRule,function(err){
+			if (err)
+				res.json({success : false, err :err});
+			else {
+				MainLoop.initRules(vh,function(){
+					res.json({sucess : true});
+				});
+			}
+
+		});
+	});
+
+
 	return {router : router};
-
-
-
 }

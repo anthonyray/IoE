@@ -1,4 +1,4 @@
-module.exports = function(vh){
+module.exports = function(vh,MainLoop){
     var express = require('express');
     var path = require('path');
     var favicon = require('static-favicon');
@@ -21,7 +21,7 @@ module.exports = function(vh){
     app.use(cookieParser());
     app.use(express.static(path.join(__dirname, 'client/app')));
 
-    app.use('/',api(vh).router );
+    app.use('/',api(vh,MainLoop).router );
 
 
     /// catch 404 and forwarding to error handler
@@ -55,7 +55,6 @@ module.exports = function(vh){
         });
     });
     return {
-        app : app 
+        app : app
     }
 }
-

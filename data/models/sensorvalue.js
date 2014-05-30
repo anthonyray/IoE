@@ -119,7 +119,7 @@ function saveRule(triggerId, actionId, cb){
 	var db;
 	db = new sqlite3.Database('./data/db.db');
 	db.serialize(function(){
-		var stmt = db.run("INSERT INTO Rules VALUES (?,?);",[triggerId,actionId],function(err){
+		var stmt = db.run("INSERT INTO Rules VALUES (null,?,?);",[triggerId,actionId],function(err){
 			db.close();
 			cb(err);
 		});
@@ -130,7 +130,7 @@ function saveTrigger(sensorId, operator, threshold, cb){
 	var db;
 	db = new sqlite3.Database('./data/db.db');
 	db.serialize(function(){
-		var stmt = db.run("INSERT INTO Triggers VALUES (?,?,?);",[sensorId,operator,threshold],function(err){
+		var stmt = db.run("INSERT INTO Triggers VALUES (null,?,?,?);",[sensorId,operator,threshold],function(err){
 			db.close();
 			cb(err);
 		});
