@@ -57,6 +57,10 @@ angular.module('ioEApp').factory('sensorsFactory', function($http) {
     return $http.get('/api/db/sensor/'+id);
   };
 
+  factory.setActuatorValue = function(actuatorId, value){
+    return $http.post('/api/realtime/actuator/', { id : actuatorId , value : value });
+  }
+
   return factory;
 });
 

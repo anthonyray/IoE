@@ -1,0 +1,48 @@
+<div class="header">
+  <h3 class="text-muted">IoE</h3>
+  <div class="navigation">
+    <ul>
+      <li><a class="text-muted" ng-href="#/">Things</a></li>
+      <li><a class="text-muted" href="">Rules</a></li>
+    </ul>
+  </div>
+</div>
+<div class="container">
+  <div class="row">   
+    <div class="col-xs-12">
+      <div class="page-header"><h1>Rules</h1></div>
+      <p><span class="badge">{{rules.length}}</span> rules are registered. <span class="pull-right btn btn-primary"><i class="glyphicon glyphicon-plus-sign"></i> Create</span></p>
+      <br>
+      <table class="table table-striped">
+        <tr>
+          <th colspan="4" class="text-center">Trigger</th>
+          <th colspan="7" class="text-center">Action</th>
+        </tr>
+        <tr ng-repeat="rule in rules" class="text-center">
+          <td><b>When</b></td>
+          <td class="text-primary">{{rule.sensorId}}</td>
+          <td><b>{{rule.operator}}</b></td>
+          <td><b>{{rule.threshold}}</b></td>
+          <td><b>Set</b></td>
+          <td class="text-warning">{{rule.actuatorId}}</td>
+          <td>to</td>
+          <td><b>{{rule.value}}</b></td>
+          <td><span class="btn btn-warning"><i class="glyphicon glyphicon-minus-sign"></i></a></td>
+
+          <td>{{rule.triggerId}}</td>
+          <td>{{rule.actionId}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    {{triggers}}
+  </div>
+</div>
+
+
+
+
+
