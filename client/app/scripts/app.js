@@ -13,6 +13,10 @@ angular
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/rules',{
+        templateUrl : 'views/rules.html',
+        controller : 'RulesCtrl'
+      })
       .when('/sensor/:sensorId',{
         templateUrl : 'views/sensor.html',
         controller : 'SensorCtrl'
@@ -46,4 +50,19 @@ angular.module('ioEApp').factory('sensorsFactory', function($http) {
   };
 
   return factory;
+});
+
+angular.module('ioEApp').factory('rulesFactory',function($http){
+  var factory = {};
+
+  factory.getRules = function(){
+    return $http.get('/api/rules');
+  };
+
+  factory.getTriggers = function(){
+    return $http.get('/api/triggers');
+  }
+
+  return factory;
+
 });

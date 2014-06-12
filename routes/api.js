@@ -101,14 +101,22 @@ module.exports = function(vh,MainLoop){
 	* Administration
 	*/
 	router.get('/api/rules',function(req,res){
-		db.loadRules(function(err,rules){
+		db.loadInitRules(function(err,rules){
 			if (err)
 				res.json({success : false});
 			else
-				res.json({rules : rules});
+				res.json(rules);
 		});
 	});
 
+	router.get('/api/triggers',function(req,res){
+		db.loadTriggers(function(err,triggers){
+			if(err)
+				res.json({success : false});
+			else
+				res.json(triggers);
+		});
+	});
 	router.post('/api/rules',function(req,res){
 			var triggerId = parseInt(req.param('triggerId'));
 			var actionId = parseInt(req.param('actionId'));
