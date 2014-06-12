@@ -117,6 +117,16 @@ module.exports = function(vh,MainLoop){
 	/*
 	* Administration
 	*/
+
+	router.get('/api/actions',function(req,res){
+		db.loadActions(function(err,actions){
+			if (err)
+				res.json({success : false});
+			else
+				res.json(actions);
+		});
+	});
+
 	router.get('/api/rules',function(req,res){
 		db.loadInitRules(function(err,rules){
 			if (err)
@@ -134,6 +144,7 @@ module.exports = function(vh,MainLoop){
 				res.json(triggers);
 		});
 	});
+	
 	router.post('/api/rules',function(req,res){
 			var triggerId = parseInt(req.param('triggerId'));
 			var actionId = parseInt(req.param('actionId'));

@@ -13,8 +13,9 @@ angular.module('ioEApp')
 
   	$scope.setValue = function(value){
   		sensorsFactory.setActuatorValue($scope.actuatorId,value).success(function(){
-  			console.log("Color Changed")
-  		})
+  			console.log("Value Changed");
+  		});
   	}
+  	
   	init();
   });

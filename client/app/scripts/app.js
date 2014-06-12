@@ -17,6 +17,10 @@ angular
         templateUrl : 'views/rules.html',
         controller : 'RulesCtrl'
       })
+      .when('/rules/create',{
+        templateUrl : 'views/rulescreator.html',
+        controller : 'RulesCreatorCtrl'
+      })
       .when('/sensor/:sensorId',{
         templateUrl : 'views/sensor.html',
         controller : 'SensorCtrl'
@@ -73,6 +77,14 @@ angular.module('ioEApp').factory('rulesFactory',function($http){
 
   factory.getTriggers = function(){
     return $http.get('/api/triggers');
+  }
+
+  factory.getActions = function(){
+    return $http.get('/api/actions');
+  }
+
+  factory.createRule = function(rule){
+    return $http.post('/api/rules@')
   }
 
   return factory;
