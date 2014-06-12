@@ -84,7 +84,7 @@ angular.module('ioEApp').factory('rulesFactory',function($http){
   }
 
   factory.createRule = function(rule){
-    return $http.post('/api/rules@')
+    return $http.post('/api/rules',{triggerId : rule.triggerId, actionId : rule.actionId});
   }
 
   return factory;
