@@ -22,6 +22,22 @@ body {
   margin-bottom: 0;
   line-height: 40px;
   padding-bottom: 19px;
+  display: inline;
+}
+
+.header .navigation {
+  float : right;
+}
+
+.header .navigation ul {
+  list-style-type: none;
+  margin-bottom: 0;
+  line-height: 40px;
+}
+
+.header .navigation li {
+  display: inline;
+  margin-left : 10px;
 }
 
 /* Custom page footer */
