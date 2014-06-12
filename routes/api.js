@@ -42,6 +42,23 @@ module.exports = function(vh,MainLoop){
 		}
 	});
 
+	router.get('/api/realtime/actuator/:id',function(req,res){
+		var actuatorId = req.params.id;
+		var result = vh.actuators.filter(function(thing){
+			return (thing.get_hardwareId() == actuatorId);
+		});
+
+		if (result.length > 0 ){ // The actuator exists
+			var actuator = { id : result[0].get_hardwareId(), date : Date.now(), numericValue : result[0].getValue() }
+			res.json(actuator);
+		}
+		else
+		{
+			res.json([]);
+		}
+
+	});
+
 	router.post('/api/realtime/actuator',function(req,res){
 		var actuatorId = req.param('id');
 		var value = req.param('value');

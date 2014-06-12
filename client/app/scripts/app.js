@@ -20,6 +20,10 @@ angular
       .when('/sensor/:sensorId',{
         templateUrl : 'views/sensor.html',
         controller : 'SensorCtrl'
+      }).
+      when('/actuator/:actuatorId',{
+        templateUrl : 'views/actuator.html',
+        controller : 'ActuatorCtrl'
       })
       .otherwise({
         redirectTo: '/'
@@ -43,8 +47,12 @@ angular.module('ioEApp').factory('sensorsFactory', function($http) {
 
   factory.getLiveSensor = function(id) {
     return $http.get('/api/realtime/sensor/'+id);
-  };          
-  
+  }; 
+
+  factory.getLiveActuator = function(id) {
+    return $http.get('/api/realtime/actuator/'+id);
+  }; 
+
   factory.getDbSensor = function(id){
     return $http.get('/api/db/sensor/'+id);
   };
