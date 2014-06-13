@@ -27,7 +27,7 @@
           <td class="text-warning">{{rule.actuatorId}}</td>
           <td>to</td>
           <td><b>{{rule.value}}</b></td>
-          <td><span class="btn btn-warning"><i class="glyphicon glyphicon-minus-sign"></i></a></td>
+          <td><a ng-href="#/rules/delete/{{rule.id}}"class="btn btn-warning"><i class="glyphicon glyphicon-minus-sign"></i></a></td>
 
           <td>{{rule.triggerId}}</td>
           <td>{{rule.actionId}}</td>
@@ -36,11 +36,7 @@
     </div>
   </div>
 </div>
-<div class="row">
-  <div class="col-xs-12">
-    {{triggers}}
-  </div>
-</div>
+
 
 
 

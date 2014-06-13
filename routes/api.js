@@ -7,6 +7,10 @@ module.exports = function(vh,MainLoop){
 	var router = express.Router();
 	var db = require('../data/models/sensorvalue');
 
+
+	router.get('/dashboard',function(req,res){
+		res.sendfile('client/dashboard/dashboard.html');
+	});
 	/* Realtime values */
 
 	router.get('/api/realtime/sensors',function(req,res){
@@ -133,6 +137,20 @@ module.exports = function(vh,MainLoop){
 				res.json({success : false});
 			else
 				res.json(rules);
+		});
+	});
+
+	router.delete('/api/rules/:ruleId',function(req,res){
+		db.deleteRule(req.params.ruleId, function(err){
+			if(err)
+				res.json({success : false});
+			else{
+				MainLoop.initRules(vh,function(){
+					res.json({success : true});
+				});
+				
+			}
+				
 		});
 	});
 

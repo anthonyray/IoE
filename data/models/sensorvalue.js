@@ -106,7 +106,7 @@ function loadInitRules(cb){
 	var initRules = [];
 	db = new sqlite3.Database('./data/db.db');
 	db.serialize(function(){
-		db.each("SELECT sensorId, operator, threshold, actuatorId, value FROM Triggers, Actions, Rules WHERE triggerId = Triggers.id AND actionId = Actions.id", function(err, row) {
+		db.each("SELECT Rules.id, sensorId, operator, threshold, actuatorId, value FROM Triggers, Actions, Rules WHERE triggerId = Triggers.id AND actionId = Actions.id", function(err, row) {
       		initRules.push(row);
   		},function(err){
   			db.close();

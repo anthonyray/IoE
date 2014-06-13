@@ -20,7 +20,7 @@ module.exports = function(vh,MainLoop){
     app.use(bodyParser.urlencoded());
     app.use(cookieParser());
     app.use(express.static(path.join(__dirname, 'client/app')));
-
+    app.use(express.static(path.join(__dirname, 'client/dashboard')));
     app.use('/',api(vh,MainLoop).router );
 
 

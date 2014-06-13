@@ -19,7 +19,11 @@ angular
       })
       .when('/rules/create',{
         templateUrl : 'views/rulescreator.html',
-        controller : 'RulesCreatorCtrl'
+        controller : 'RulesCtrl'
+      })
+      .when('/rules/delete/:ruleId',{
+        templateUrl : 'views/rulesdelete.html',
+        controller : 'RulesCtrl'
       })
       .when('/sensor/:sensorId',{
         templateUrl : 'views/sensor.html',
@@ -85,6 +89,10 @@ angular.module('ioEApp').factory('rulesFactory',function($http){
 
   factory.createRule = function(rule){
     return $http.post('/api/rules',{triggerId : rule.triggerId, actionId : rule.actionId});
+  }
+
+  factory.deleteRule = function(ruleId){
+    return $http.delete('/api/rules/'+ruleId);
   }
 
   return factory;
