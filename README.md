@@ -64,8 +64,18 @@ A présent, si vous avez installé l'interface graphique, ouvrez un navigateur w
 
 L'interface graphique est contenue dans le dossier `client`. Le dossier `data` contient le fichier de la base de données et les modèles des données. Le dossier `routes` contient le détail des routes de l'API.
 
-Le fichier principal est `serve.js` qui s'occupe de faire la glue entre les différents modules. La boucle principale est initialisée, les capteurs et actionneurs sont instanciés et l'API est démarrée. 
+Le fichier principal est `serve.js` qui s'occupe de faire la glue entre les différents modules. Lors de l'éxecution de ce fichier, la boucle principale est initialisée, les capteurs et actionneurs sont instanciés et l'API est démarrée. 
+
 ## Structure détaillée du code 
+
+Détaillons le rôle de chaque module de l'application 
++ `app.js` est responsable de l'API. 
++ `routes/api.js` détaille les routes de l'API
++ `lib/mainloop.js` est le module décrivant la boucle principale. La boucle principale s'éxécute toutes les 1500 ms, et effectue les étapes suivantes : enregistrement des valeurs de tous les capteurs branchés dans la base de données, vérification des règles sur la valeur des capteurs. 
++ `lib/sensorhelper.js` fonctions utilitaires utilisées pour le contrôle des LED RGB. 
++ `lib/virtualhub.js` responsable de l'instanciation des capteurs et actionneurs connectés. Fournit une interface pour accéder à la valeur des capteurs et contrôler les actionneurs. 
++ `data/models/sensorsvalue.js` : représentation des différentes données de l'application. Permet de faire le lien avec la base de données. Représentation des capteurs, actionneurs, déclencheurs, actions et règles. 
+
 ## Fonctionnement haut-niveau
 ## Documentation de l'API 
 
