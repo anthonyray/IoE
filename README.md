@@ -78,7 +78,18 @@ Détaillons le rôle de chaque module de l'application
 
 ## Documentation de l'API 
 
-| VERB | Route | Description |
-|:----:|:-----:|:-----------:|
-| GET  | /api/realtime/sensors | Retourne la liste des capteurs connectés |
+| VERB | Route | Description | Paramètres |
+|:----:|:-----:|:-----------:|:----------:|
+| GET  | /api/realtime/sensors | Retourne la liste des capteurs connectés avec leur valeur temps réel ||
+| GET  | /api/realtime/sensor/:id | Retourne le capteur avec l'id :id et sa valeur instantanée ||
+| GET  | /api/realtime/actuators | Retourne la liste des actionneurs connectés ||
+| GET  | /api/realtime/actuator/:id | Retourne le capteur avec l'id :id ||
+| POST  | /api/realtime/actuator | Change la valeur de l'actionneur id avec la valeur value | id, value |
+| GET  | /api/db/sensors | Retourne l'historique des capteurs avec leur valeur tirés de la base de données ||
+| GET  | /api/db/sensor/:id | Retourne le capteur avec l'id :id et ses valeurs enregistrées dans la base de données ||
+| GET  | /api/actions | Retourne la liste des actions présentes dans la base de données ||
+| GET  | /api/triggers | Retourne la liste des déclencheurs présents dans la base de données ||
+| GET  | /api/rules | Retourne la liste des règles présentes dans la base de données ||
+| POST  | /api/rules/ | Crée une nouvelle règle à partir de l'identifiant d'un déclencheur et l'identifiant d'une action | triggerId, actionId|
+| DELETE | /api/rules/:ruleId | Supprime la règle d'id :ruleId ||
 
