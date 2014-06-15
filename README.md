@@ -76,6 +76,9 @@ Détaillons le rôle de chaque module de l'application
 + `lib/virtualhub.js` responsable de l'instanciation des capteurs et actionneurs connectés. Fournit une interface pour accéder à la valeur des capteurs et contrôler les actionneurs. 
 + `data/models/sensorsvalue.js` : représentation des différentes données de l'application. Permet de faire le lien avec la base de données. Représentation des capteurs, actionneurs, déclencheurs, actions et règles. 
 
-## Fonctionnement haut-niveau
 ## Documentation de l'API 
+
+| VERB | Route | Description |
+|:----:|:-----:|:-----------:|
+| GET  | /api/realtime/sensors | Retourne la liste des capteurs connectés |
 
