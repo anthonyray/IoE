@@ -59,3 +59,13 @@ A présent, si vous avez installé l'interface graphique, ouvrez un navigateur w
 + `localhost:[lenumérodeportquevousavezdéfini]/` pour accéder à l'interface d'administration
 + `localhost:[lenumérodeportquevousavezdéfini]/dashboard` pour accéder au dashboard de l'application
 
+# Documentation détaillée
+## Structure générale du code 
+
+L'interface graphique est contenue dans le dossier `client`. Le dossier `data` contient le fichier de la base de données et les modèles des données. Le dossier `routes` contient le détail des routes de l'API.
+
+Le fichier principal est `serve.js` qui s'occupe de faire la glue entre les différents modules. La boucle principale est initialisée, les capteurs et actionneurs sont instanciés et l'API est démarrée. 
+## Structure détaillée du code 
+## Fonctionnement haut-niveau
+## Documentation de l'API 
+
