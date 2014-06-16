@@ -48,6 +48,7 @@ Remplissez les champs du fichier `conf.js` depuis votre éditeur de texte :
 ## Initialisation de la base de données
 
 Afin d'initialiser la base de données, éxécutez les commandes suivantes : 
+
 1. `node db_init.js`
 2. `node db_populate.js`
 
@@ -152,6 +153,27 @@ Il est possible de consommer l'API de n'importe quel moyen. Que ce soit un scrip
 L'application est équipée d'un "moteur de règles" qui permet de vérifier des fronts montants/descendants sur la valeur de capteurs et de déclencher des actions en réponse. Il convient donc de choisir dans un premier temps le déclencheur (appelé trigger) : Ce déclencheur porte sur la valeur d'un capteur. Dans un deuxième temps, il faut choisir l'action : Il s'agit d'une modification de la valeur des capteurs. Ainsi, lorsqu'un capteur subit un front montant ou descendant par rapport à une valeur seuil, l'action est déclenchée : Ceci constitue une règle. 
 
 L'ensemble des règles est vérifié toutes les 1500 ms. 
+
+## Interface graphique. 
+
+Nous rappelons que l'interface graphique est séparée en deux parties : l'une pour l'administration et l'autre qui est un tableau de bord temps réel. 
+
+### Tableau de bord 
+
+Ce tableau de bord permet de se faire une idée de l'ensemble de la valeur des capteurs connectés au routeur. Il est issu du projet [freeboard.io](https://github.com/Freeboard/freeboard). 
+Ce tableau de bord est entièrement modifiable : il utilise un fichier de configuration appelé `dashboard.json` pour sauvegarder l'état de l'interface. Il est possible de régler la fréquence à laquelle sont rafraîchies les valeurs des capteurs dans l'onglet de configuration. Pour une documentation plus détaillée, consultez celle de [freeboard.io](https://github.com/Freeboard/freeboard). 
+
+### Interface d'administration
+
+Nous avons développé une interface d'administration permettant de monitorer la valeur des capteurs, de modifier la valeur des actionneurs en temps réel et de ajouter/retirer à chaud des règles dans le moteur de règles.
+
+Cette application est construite "on top" de notre API, et fait une utilisation quasi-exhaustive des routes définies de l'API. 
+
+Elle est divisée en plusieurs sections :
++ Une section Things : donne une vue générale sur l'ensemble des capteurs et actionneurs connectés, mais aussi un historique des capteurs et de leur valeurs.
++ Une section Rules : permet la consultation, l'ajout et le retrait de règles dynamiques portant sur la valeur des capteurs. 
+
+
 
 
 
