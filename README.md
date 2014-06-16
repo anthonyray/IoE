@@ -16,6 +16,8 @@ Pour faire fonctionner l'application, il est nécessaire d'avoir installé :
 + `VirtualHub` (fourni par Yoctopuce)
 + `sqlite3`
 
+**A partir de maintenant, et pour le reste de la documentation, nous prenons pour hypothèses que votre variable $PATH contient le chemin pour accéder aux applications décrites ci-dessus (node, npm, Virtualhub, sqlite3).**
+
 Si vous souhaitez utiliser l'interface graphique développée, installez également `bower` (`npm install bower -g`).
 
 # Première installation
@@ -135,6 +137,12 @@ angular.module('ioEApp').factory('sensorsFactory', function($http) {
 });
 
 ````
+
+#### Depuis une autre source 
+
+Il est possible de consommer l'API de n'importe quel moyen. Que ce soit un script BASH, une application mobile native, etc ... Il suffit de se référer à la documentaion des routes de l'API et d'effectuer les requêtes avec les bons arguments. 
+
+
 ## Moteur de règles 
 
 L'application est équipée d'un "moteur de règles" qui permet de vérifier des fronts montants/descendants sur la valeur de capteurs et de déclencher des actions en réponse. Il convient donc de choisir dans un premier temps le déclencheur (appelé trigger) : Ce déclencheur porte sur la valeur d'un capteur. Dans un deuxième temps, il faut choisir l'action : Il s'agit d'une modification de la valeur des capteurs. Ainsi, lorsqu'un capteur subit un front montant ou descendant par rapport à une valeur seuil, l'action est déclenchée : Ceci constitue une règle. 
