@@ -93,3 +93,11 @@ Détaillons le rôle de chaque module de l'application
 | POST  | /api/rules/ | Crée une nouvelle règle à partir de l'identifiant d'un déclencheur et l'identifiant d'une action | triggerId, actionId|
 | DELETE | /api/rules/:ruleId | Supprime la règle d'id :ruleId ||
 
+## Moteur de règles 
+
+L'application est équipée d'un "moteur de règles" qui permet de vérifier des fronts montants/descendants sur la valeur de capteurs et de déclencher des actions en réponse. Il convient donc de choisir dans un premier temps le déclencheur (appelé trigger) : Ce déclencheur porte sur la valeur d'un capteur. Dans un deuxième temps, il faut choisir l'action : Il s'agit d'une modification de la valeur des capteurs. Ainsi, lorsqu'un capteur subit un front montant ou descendant par rapport à une valeur seuil, l'action est déclenchée : Ceci constitue une règle. 
+
+L'ensemble des règles est vérifié toutes les 1500 ms. 
+
+
+
