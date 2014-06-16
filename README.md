@@ -28,6 +28,8 @@ Assurez vous d'installer les dernières versions des applications évoquées ci-
 
 ```` npm install ````
 
+Cette commande s'occupera de parser le contenu du fichier `package.json` qui contient la liste des modules à installer. Vous pouvez regarder le contenu de ce fichier pour voir les noms et versions des modules ainsi que leur dépendance. 
+
 Si vous souhaitez installer l'interface graphique : 
 ````
 cd client
