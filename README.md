@@ -16,7 +16,7 @@ Pour faire fonctionner l'application, il est nécessaire d'avoir installé :
 + `VirtualHub` (fourni par Yoctopuce)
 + `sqlite3`
 
-Si vous souhaitez utiliser l'interface graphique développée, installez également `bower`.
+Si vous souhaitez utiliser l'interface graphique développée, installez également `bower` (`npm install bower -g`).
 
 # Première installation
 
@@ -92,6 +92,30 @@ Détaillons le rôle de chaque module de l'application
 | GET  | /api/rules | Retourne la liste des règles présentes dans la base de données ||
 | POST  | /api/rules/ | Crée une nouvelle règle à partir de l'identifiant d'un déclencheur et l'identifiant d'une action | triggerId, actionId|
 | DELETE | /api/rules/:ruleId | Supprime la règle d'id :ruleId ||
+
+### Accéder à l'API
+#### Depuis la ligne de commande 
+Vous pouvez faire des appels à l'API depuis la ligne de commande avec différents utilitaires. Prenons l'exemple de l'utilitaire CLI le plus répandu : curl. 
+Mettons que l'on souhaite récupérer les valeurs dans la base de données d'un capteur d'identifiant METEOMK1-1DB2A.temperature, il suffit d'éxécuter la commande suivante 
+
+````
+curl http://localhost:9000/api/db/sensor/METEOMK1-1DB2A.temperature
+````
+
+Le résultat obtenu est en le suivant (JSON): 
+````
+[
+	{"thingId":"METEOMK1-1DB2A.temperature","date":1402909192238,"numericValue":25,"textValue":null},
+	{"thingId":"METEOMK1-1DB2A.temperature","date":1402909190595,"numericValue":25,"textValue":null},
+	{"thingId":"METEOMK1-1DB2A.temperature","date":1402909188961,"numericValue":25,"textValue":null},
+	{"thingId":"METEOMK1-1DB2A.temperature","date":1402909187286,"numericValue":25,"textValue":null},
+	{"thingId":"METEOMK1-1DB2A.temperature","date":1402909185645,"numericValue":25,"textValue":null},
+	{"thingId":"METEOMK1-1DB2A.temperature","date":1402909183990,"numericValue":25,"textValue":null},
+	{"thingId":"METEOMK1-1DB2A.temperature","date":1402909182346,"numericValue":25,"textValue":null},
+	{"thingId":"METEOMK1-1DB2A.temperature","date":1402909180719,"numericValue":25,"textValue":null},
+	{"thingId":"METEOMK1-1DB2A.temperature","date":1402909179070,"numericValue":25,"textValue":null}
+]
+````
 
 ## Moteur de règles 
 
