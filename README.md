@@ -5,6 +5,7 @@ Bienvenue sur la plateforme de démonstration Internet des Objets. Cette partie 
 
 ![alt text](https://raw.githubusercontent.com/anthonyray/IoE/master/documentation/images/cover.jpg "CoverImage")
 
+[![Youtube video](http://img.youtube.com/vi/TSzkk4ilBy8/0.jpg)](https://www.youtube.com/watch?v=TSzkk4ilBy8)
 
 
 # Description 
