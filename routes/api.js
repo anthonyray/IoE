@@ -5,7 +5,7 @@ module.exports = function(vh,MainLoop){
 
 	var express = require('express');
 	var router = express.Router();
-	var db = require('../data/models/sensorvalue');
+	var db = require('../data/models/database');
 
 
 	router.get('/dashboard',function(req,res){
