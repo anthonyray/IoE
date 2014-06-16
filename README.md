@@ -1,4 +1,4 @@
-# Cisco Internet of Things Demonstration Platform 
+# Internet of Things Demonstration Platform 
 ## Documentation de l'application
 
 Bienvenue sur la plateforme de démonstration Internet des Objets. Cette partie de la documentation s'attarde sur l'application à embarquer dans la machine virtuelle d'un routeur équipé de l'architecture IOx.
