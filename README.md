@@ -15,6 +15,7 @@ Pour faire fonctionner l'application, il est nécessaire d'avoir installé :
 + `npm` 
 + `VirtualHub` (fourni par Yoctopuce)
 + `sqlite3`
++ (`bower`) (nécessaire pour installer notre interface graphique)
 
 **A partir de maintenant, et pour le reste de la documentation, nous prenons pour hypothèses que votre variable $PATH contient le chemin pour accéder aux applications décrites ci-dessus (node, npm, Virtualhub, sqlite3).**
 
@@ -55,6 +56,7 @@ Ces commandes initialiseront les tables de la base de données et les rempliront
 # Démarrage rapide
 
 Pour démarrer l'application, veuillez suivre les étapes suivantes : 
+
 1. Démarrez l'application `VirtualHub`
 2. Dans le répertoire principal, exécutez `node serve.js` . 
 
