@@ -40,7 +40,7 @@ bower install
 
 Remplissez les champs du fichier `conf.js` depuis votre éditeur de texte :
 + le champ `virtualHub.ip` permet de définir l'addresse IP(v4 ou v6) de l'application Virtualhub (localhost si le virtualhub et l'application tournent sur la même machine)
-+ le champ `virtualHub.port` permet de définir le port de l'application Virtualhub (4444 par défaut)
++ le champ `virtualHub.port` permet de définir le port de l'application Virtualhub (4444 par défaut, cependant l'implémentation de l'application VirtualHub n'a pas l'air de prendre en compte un port différent de 4444)
 + le champ `virtualHub.updateTime` permet de définir la durée de l'intervalle de vérification du branchement/débranchement de périphériques. 
 + le champ `DBPath` permet de définir le chemin vers le fichier de base de données (il est conseillé de le laisser à sa valeur ".");
 + le champ `DBName` permet de nommer le fichier de base de données sqlite3 (par défaut, db.db)
