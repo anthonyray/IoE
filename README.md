@@ -164,6 +164,10 @@ Nous rappelons que l'interface graphique est séparée en deux parties : l'une p
 
 ### Tableau de bord 
 
+
+![altttext](https://raw.githubusercontent.com/anthonyray/IoE/master/documentation/images/dashboard.jpg "Dashboard interface")
+
+
 Ce tableau de bord permet de se faire une idée de l'ensemble de la valeur des capteurs connectés au routeur. Il est issu du projet [freeboard.io](https://github.com/Freeboard/freeboard). 
 Ce tableau de bord est entièrement modifiable : il utilise un fichier de configuration appelé `dashboard.json` pour sauvegarder l'état de l'interface. Il est possible de régler la fréquence à laquelle sont rafraîchies les valeurs des capteurs dans l'onglet de configuration. Pour une documentation plus détaillée, consultez celle de [freeboard.io](https://github.com/Freeboard/freeboard). 
 
