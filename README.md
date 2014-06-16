@@ -117,6 +117,24 @@ Le résultat obtenu est en le suivant (JSON):
 ]
 ````
 
+#### Depuis l'interface graphique 
+
+Il est possible de construire sa propre interface graphique et faire son rendu côté client en consommant les données à travers des requêtes ajax à l'API. Il suffit de se référer à la documentation des routes proposées par l'API. 
+
+Par exemple, avec notre interface graphique, nous utilisons le framework Javascript Angular.js. La récupération des données est assurée par un module qui fait des appels à une route particulière de l'API. Par exemple, pour récupérer la liste des capteurs connectés au routeur et leur valeur instantanée : 
+
+
+````javascript
+
+angular.module('ioEApp').factory('sensorsFactory', function($http) { 
+  var factory = {};
+            
+  factory.getLiveSensors = function() {
+    return $http.get('/api/realtime/sensors');
+  };
+});
+
+````
 ## Moteur de règles 
 
 L'application est équipée d'un "moteur de règles" qui permet de vérifier des fronts montants/descendants sur la valeur de capteurs et de déclencher des actions en réponse. Il convient donc de choisir dans un premier temps le déclencheur (appelé trigger) : Ce déclencheur porte sur la valeur d'un capteur. Dans un deuxième temps, il faut choisir l'action : Il s'agit d'une modification de la valeur des capteurs. Ainsi, lorsqu'un capteur subit un front montant ou descendant par rapport à une valeur seuil, l'action est déclenchée : Ceci constitue une règle. 
