@@ -3,6 +3,10 @@
 
 Bienvenue sur la plateforme de démonstration Internet des Objets. Cette partie de la documentation s'attarde sur l'application à embarquer dans la machine virtuelle d'un routeur équipé de l'architecture IOx.
 
+![alt text](https://raw.githubusercontent.com/anthonyray/IoE/master/documentation/images/cover.jpg "CoverImage");
+
+
+
 # Description 
 
 Cette application a pour but d'illustrer la pertinence de l'architecture IOx en réponse au paradigme du Fog Computing. Cette application réside dans un routeur d'accès, qui se trouve au plus près des capteurs. Cette application a pour but de recueillir la valeur des capteurs connectés au routeur dans une base de données, contrôler les actionneurs connectés au routeur, et permet de définir des règles sur la valeur des capteurs et de déclencher des actionneurs en cas de dépassement d'une valeur seuil. Pour ce faire, l'application est une API REST, qui reçoit des requêtes HTTP et transforment celles-ci en actions.
