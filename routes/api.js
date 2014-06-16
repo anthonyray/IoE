@@ -121,6 +121,15 @@ module.exports = function(vh,MainLoop){
 	/*
 	* Administration
 	*/
+	
+	router.get('/api/triggers',function(req,res){
+		db.loadTriggers(function(err,triggers){
+			if(err)
+				res.json({success : false});
+			else
+				res.json(triggers);
+		});
+	});
 
 	router.get('/api/actions',function(req,res){
 		db.loadActions(function(err,actions){
@@ -151,15 +160,6 @@ module.exports = function(vh,MainLoop){
 				
 			}
 				
-		});
-	});
-
-	router.get('/api/triggers',function(req,res){
-		db.loadTriggers(function(err,triggers){
-			if(err)
-				res.json({success : false});
-			else
-				res.json(triggers);
 		});
 	});
 	
