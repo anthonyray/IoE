@@ -3,7 +3,7 @@
 
 Bienvenue sur la plateforme de démonstration Internet des Objets. Cette partie de la documentation s'attarde sur l'application à embarquer dans la machine virtuelle d'un routeur équipé de l'architecture IOx.
 
-![alt text](https://raw.githubusercontent.com/anthonyray/IoE/master/documentation/images/cover.jpg "CoverImage");
+![alt text](https://raw.githubusercontent.com/anthonyray/IoE/master/documentation/images/cover.jpg "CoverImage")
 
 
 
@@ -168,6 +168,10 @@ Ce tableau de bord permet de se faire une idée de l'ensemble de la valeur des c
 Ce tableau de bord est entièrement modifiable : il utilise un fichier de configuration appelé `dashboard.json` pour sauvegarder l'état de l'interface. Il est possible de régler la fréquence à laquelle sont rafraîchies les valeurs des capteurs dans l'onglet de configuration. Pour une documentation plus détaillée, consultez celle de [freeboard.io](https://github.com/Freeboard/freeboard). 
 
 ### Interface d'administration
+
+
+![alttext](https://raw.githubusercontent.com/anthonyray/IoE/master/documentation/images/administration.tiff "Admin interface")
+
 
 Nous avons développé une interface d'administration permettant de monitorer la valeur des capteurs, de modifier la valeur des actionneurs en temps réel et de ajouter/retirer à chaud des règles dans le moteur de règles.
 
